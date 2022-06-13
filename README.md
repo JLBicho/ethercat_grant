@@ -11,6 +11,17 @@ If you compiled this package from source, then you'll need to copy the resulting
 ## Use
 Using ethercat_grant makes it possible to not use *sudo* anymore for running the ethercat main loop. Just use `launch-prefix="ethercat_grant"` in your launch files for the *ros_ethercat_loop*.
 
+### ROS2
+
+If using ROS2, you can use the prefix this way in the launch file.
+```
+Node(
+    package="pkg_name",
+    executable="exec_name",
+    prefix=["ethercat_grant"])
+```
+All other values like namespace, parameters or else is not affected.
+
 ## When releasing this package (developers only)
 
 If we change the `scripts/postinst` post installation script, it has to be manually copied, commited and pushed to the branch with name `debian/ROS_DISTRO/ethercat_grant` inside the debian directory (where ROS_DISTRO is one of hydro, indigo...)
